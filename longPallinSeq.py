@@ -18,35 +18,12 @@ def longestPalindromeSubsequence(s):
             else:
                 dp[i][j] = max(dp[i+1][j], dp[i][j-1])
 
-    # Reconstruct the palindrome from dp table
-    i, j = 0, n - 1
-    left = []
-    right = []
-
-    while i <= j:
-        if s[i] == s[j]:
-            if i == j:
-                left.append(s[i])  # center character
-            else:
-                left.append(s[i])
-                right.append(s[j])
-            i += 1
-            j -= 1
-        else:
-            if dp[i+1][j] >= dp[i][j-1]:
-                i += 1
-            else:
-                j -= 1
-
-    # Construct full palindrome
-    palindrome = ''.join(left + right[::-1])
-
-    return dp[0][n-1], palindrome
+    
+    return dp[0][n-1]
 
 
 # ---------- MAIN ----------
 s = input("Enter string: ")
-length, pal = longestPalindromeSubsequence(s)
+length = longestPalindromeSubsequence(s)
 
 print("Length of LPS:", length)
-print("Longest Palindromic Subsequence:", pal)
