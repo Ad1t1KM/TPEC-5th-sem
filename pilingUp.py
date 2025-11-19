@@ -9,7 +9,7 @@ for _ in range(T):
     blocks = []
     while len(blocks) < n:
         blocks.extend(map(int, input().split()))
-    blocks = blocks[:n]     # in case user enters more
+    # blocks = blocks[:n]     # in case user enters more
 
     left = 0
     right = n - 1
